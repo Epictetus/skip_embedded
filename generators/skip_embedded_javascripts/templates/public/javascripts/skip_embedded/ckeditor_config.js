@@ -6,27 +6,40 @@
 CKEDITOR.editorConfig = function( config )
 {
     config.contentsCss = CKEDITOR.getUrl( '/stylesheets/skip_embedded/ckeditor_area.css' );
+    config.extraPlugins = 'mobilepictogram';
 
     config.toolbar_Entry = [
-        ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
-        ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-        '/',
+        ['Cut','Copy','Paste','PasteText','PasteFromWord'],
+        ['SelectAll','RemoveFormat'],
         ['Bold','Italic','Underline','Strike'],
-        ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
-        ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+        ['NumberedList','BulletedList'],
+        ['JustifyLeft','JustifyCenter','JustifyRight'],
         ['TextColor','BGColor'],
-        ['Table','HorizontalRule','Smiley','SpecialChar'],
+        ['Table','HorizontalRule','Smiley', 'MobilePictogram'],
         '/',
         ['Styles','Format','Font','FontSize'],
-        ['Link','Unlink','Anchor'],
+        ['Link','Unlink'],
         ['Source','Preview'],
         ['Maximize', 'ShowBlocks','-','About']
+    ];
+
+    config.toolbar_EntrySimple = [
+        ['Bold','Italic','Underline','Strike'],
+        ['NumberedList','BulletedList'],
+        ['JustifyLeft','JustifyCenter','JustifyRight'],
+        ['TextColor','BGColor'],
+        ['Table','Smiley', 'MobilePictogram'],
+        '/',
+        ['Format','FontSize'],
+        ['Link'],
+        ['Source'],
+        ['Maximize']
     ];
 
     config.toolbar_Simple = [
         ['Undo','Redo'],
         ['Bold','Italic','Underline','Strike','RemoveFormat'],
-        ['TextColor','BGColor','Smiley'],
+        ['TextColor','BGColor','Smiley', 'MobilePictogram'],
         '/',
         ['Font','Format','FontSize']           // No comma for the last row.
     ];
@@ -49,4 +62,10 @@ CKEDITOR.editorConfig = function( config )
         'Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;',
         'Verdana/Verdana, Geneva, sans-serif'
     ].join('');
+
+    config.shiftEnterMode = CKEDITOR.ENTER_BR;
+    config.enterMode = CKEDITOR.ENTER_BR;
+
+    config.height = '500px';
+    config.resize_enabled = false;
 };
